@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Connect Four Game</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
     <link rel="stylesheet" href="style.css">
  </head>
 <body>
-    <div class="wrapper">
-        <div class="playerSides player1">
-            <h1 class="player1Score"></h1>
-        </div>
-        <div class="container">
-            <h1 class="winnerName"></h1>
-            <h3>Player One (color will be green) and Player Two (color will be red)</h3>
+    <div class="wrapper_not"> 
+        <div class="container"> 
+            <h1>Connect Four Game</h1>
+			<h1>Player One (color will be green) and Player Two (color will be red)</h1>
             <table class="board">
 				 <tr> <td>
                         <button id="buttonC0" type="button" onclick="setColor(this.id)">Click</button>
@@ -179,14 +175,12 @@
                     </td>
                 </tr>
             </table>
-        </div>
-        <div class="playerSides player2">
-            <h1 class="player2Score"></h1>
-        </div>
+			<h2><label id="lbl"></label>   </h2>
+        </div> 
     </div>
      <script src="display.js"></script>
      <script>
-	
+
 </script>
 </body>
 
