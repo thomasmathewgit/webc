@@ -35,4 +35,47 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 ### Support or Contact
 
 Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+ </head>
+<body>
+    <div class="wrapper_not">
+        <div class="container">
+            <h1>Connect Four Game</h1>
+			<h1>Player One (color will be green) and Player Two (color will be red)</h1>
+            <table class="board">
+				 <tr> <td>
+                        <button id="buttonC0" type="button" onclick="setColor(this.id)">Click</button>
+                    </td>
+                    <td>
+                        <button id="buttonC1" type="button" onclick="setColor(this.id)">Click</button>
+                    </td>
+                    <td>
+                        <button id="buttonC2" type="button" onclick="setColor(this.id)">Click</button>
+                    </td>
+                    <td>
+                        <button id="buttonC3" type="button" onclick="setColor(this.id)">Click</button>
+                    </td>
+                    <td>
+                        <button id="buttonC4" type="button" onclick="setColor(this.id)">Click</button>
+                    </td>
+                    <td>
+                        <button id="buttonC5" type="button" onclick="setColor(this.id)">Click</button>
+                    </td>
+                    <td>
+                        <button id="buttonC6" type="button" onclick="setColor(this.id)">Click</button>
+                    </td>
+                </tr>
+				</table>
+     <script src="display.js"></script>
+     <script>
+
+</script>
+</body>
+
+</html>
