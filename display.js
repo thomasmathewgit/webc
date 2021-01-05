@@ -15,24 +15,22 @@
 	var columns =7;
 	var rows = 6;
 	let arrayConnect4 = [
-	[0,0,0,0,0,0,0,0],			//00 01 02 03 row col
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0]
+	[0,0,0,0,0,0,0],			//00 01 02 03 row col
+	[0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0] 
 	];
+	 
 
 	function isAnyWinner() { 
 		// 2 to 4 ways to check
 		var i, j; 
-		//1. first way : colm wise
+		//1. first way : column wise (wrkg for all coln, up col also) 
 		for (i = 0; i < columns; i++) { 
-		console.table(" isAnyWinner: "+i+"  "+arrayConnect4[i]);
-		  for (j = 0; j < rows - 3; j++) { //only 3times for row			
-			console.log("player1Clr");
-			
+		  console.table(" isAnyWinner(col): "+i+"  :"+arrayConnect4[i]);
+		  for (j = 0; j < rows - 3; j++) { //only 3times for row
 			console.log("arrayConnect4[j][i] j:"+j+" i:"+i+" data="+arrayConnect4[j][i]); 
 		    console.log(" arrayConnect4[j+3][i]:"+ arrayConnect4[j+3][i]); 
 			if(arrayConnect4[j][i] == arrayConnect4[j+1][i])
@@ -42,86 +40,30 @@
 			   arrayConnect4[j][i] == arrayConnect4[j+1][i] &&
 			   arrayConnect4[j+1][i] == arrayConnect4[j+2][i] &&
 			   arrayConnect4[j+2][i] == arrayConnect4[j+3][i]) {
-				   console.log(" got winner *** "+arrayConnect4[j+2][i]);
+				   console.log(" got winner (col) *** "+arrayConnect4[j+2][i]);
 				   return(arrayConnect4[j+2][i])
 			   } 
 		  }
 		} 
 		
 		//2. row wise : 7 columns × 6 rows
-		for (i = 0; i < columns  ; i++) { 
-		console.table(" isAnyWinner(row): "+i+"  "+arrayConnect4[i]);
-		  for (j = 0; j < rows ; j++) { //only 2times for row			
-		  
-		    console.log(" arrayConnect4[j][i]:"+ arrayConnect4[j][i])
-			
-			/*console.log("player1Clr");
-			
-			console.log("arrayConnect4[j][i] j:"+j+" i:"+i+" data="+arrayConnect4[j][i]);
-			console.log("arrayConnect4[j+1][i] :"+arrayConnect4[j+1][i]);
-		    console.log(" arrayConnect4[j+2][i]:"+ arrayConnect4[j+2][i]);
-			
-		    console.log(" arrayConnect4[j+3][i]:"+ arrayConnect4[j+3][i]);
-			
-			if(arrayConnect4[j][i] == arrayConnect4[j+1][i])
-				console.log("1line");
-			if(arrayConnect4[j][i] == arrayConnect4[j+1][i] &&
-			   arrayConnect4[j+1][i] == arrayConnect4[j+2][i] )
-				console.log("1line111");
-			
-		  
-			if(arrayConnect4[j][i] != 0 &&
-			   arrayConnect4[j][i] == arrayConnect4[j+1][i] &&
-			   arrayConnect4[j+1][i] == arrayConnect4[j+2][i] &&
-			   arrayConnect4[j+2][i] == arrayConnect4[j+3][i]) {
-				   console.log(" got winner(row wise) ****** "+arrayConnect4[j+2][i]);
-				   return(arrayConnect4[j+2][i])
-			   } */
-		  }
-		} 
-		
-		//3. dialog ?
-		return(0); //no winner till now
-	}
-	
-	function isAnyWinnerRow() { 
-		// 2 to 4 ways to check
-		var i, j; 
-	//2. row wise : 7 columns × 6 rows
-		for (i = 0; i < columns  ; i++) { 
-		console.table(" isAnyWinner(row): columns:"+columns+" rows:"+rows+" i:"+i+"  "+arrayConnect4[i]);
-		  for (j = 0; j < rows ; j++) { //only 2times for row			
-		  
-		  // console.log(" arrayConnect4[i][j]:"+ arrayConnect4[i][j] +"   j:"+j+" i:"+i) 
-		  console.log(" arrayConnect4[j][i]:"+ arrayConnect4[j][i] +"   j:"+j+" i:"+i)//printing 1 whole cols wise 
-			
-			/*console.log("player1Clr");
-			
-			console.log("arrayConnect4[j][i] j:"+j+" i:"+i+" data="+arrayConnect4[j][i]);
-			console.log("arrayConnect4[j+1][i] :"+arrayConnect4[j+1][i]);
-		    console.log(" arrayConnect4[j+2][i]:"+ arrayConnect4[j+2][i]);
-			
-		    console.log(" arrayConnect4[j+3][i]:"+ arrayConnect4[j+3][i]);
-			
-			if(arrayConnect4[j][i] == arrayConnect4[j+1][i])
-				console.log("1line");
-			if(arrayConnect4[j][i] == arrayConnect4[j+1][i] &&
-			   arrayConnect4[j+1][i] == arrayConnect4[j+2][i] )
-				console.log("1line111");
-			
-		  
-			if(arrayConnect4[j][i] != 0 &&
-			   arrayConnect4[j][i] == arrayConnect4[j+1][i] &&
-			   arrayConnect4[j+1][i] == arrayConnect4[j+2][i] &&
-			   arrayConnect4[j+2][i] == arrayConnect4[j+3][i]) {
-				   console.log(" got winner(row wise) ****** "+arrayConnect4[j+2][i]);
-				   return(arrayConnect4[j+2][i])
-			   } */
-		  }
+		//sample : [0,0,0,0,0,0,0,0],			//00 01 02 03 row col
+		//[0,0,0,0,0,0,0,0],
+		for (j = 0; j < rows ; j++) {  
+		   console.table(" isAnyWinner(row): "+j+"  :"+arrayConnect4[j]);
+		   for (i = 0; i < columns - 3; i++){ 
+				console.log(" arrayConnect4[j][i]:"+ arrayConnect4[j][i])
+				if(arrayConnect4[j][i] != 0 &&
+				   arrayConnect4[j][i] == arrayConnect4[j][i+1] &&
+				   arrayConnect4[j][i+1] == arrayConnect4[j][i+2] &&
+				   arrayConnect4[j][i+2] == arrayConnect4[j][i+3]) {
+					   console.log(" got winner (row) *** "+arrayConnect4[j][i+2]);
+					   return(arrayConnect4[j][i+2])
+			   } 
+			  }
 		}  
-		//3. dialog ?
 		return(0); //no winner till now
-	}
+	} 
 	
     function setColor(btn) {
 		var btnExtra;
@@ -213,12 +155,12 @@
 			var property = document.getElementById("lbl");
 			if(winner == 1)
 			{
-				property.innerHTML="Player one won, Congratulations ";
-				alert(property.innerHTML+", resetting..");
+				property.innerHTML="Player 1 won, Congratulations ";
+				alert(property.innerHTML );
 			}
 			if(winner == 2)
 			{
-				property.innerHTML="Player two won, Congratulations ";
+				property.innerHTML="Player 2 won, Congratulations ";
 				alert(property.innerHTML);
 			}
 		}
