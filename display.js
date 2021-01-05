@@ -21,17 +21,7 @@
 	[0,0,0,0,0,0,0],			//30 31 32 33 34 35		//diag = case1 00 11 22 33 or 01 12 23 34 or 02 13 24 35
 	[0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0] 
-	];
-		let arrayConnect4WorkgBut8 = [
-	[0,0,0,0,0,0,0,0],			//00 01 02 03 row col
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0],
-	[0,0,0,0,0,0,0,0]
-	];
-
+	]; 
 	function isAnyWinner() { 
 		// 2 to 4 ways to check
 		var i, j; 
@@ -71,7 +61,7 @@
 			  }
 		}
 
-		//3. //diag = case1 00 11 22 33 or 01 12 23 34 or 02 13 24 35
+		//3. //diag upward = case1 00 11 22 33 or 01 12 23 34 or 02 13 24 35
 		for (j = 0; j < rows ; j++) {  
 		   console.table(" isAnyWinner(dia): "+j+"  :"+arrayConnect4[j]);
 		   for (i = 0; i < columns - 3; i++){ 
