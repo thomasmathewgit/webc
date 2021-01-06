@@ -13,24 +13,24 @@
 		
 		//The most commonly used Connect Four board size is 7 columns × 6 rows. Size variations include 5×4, 6×5, 8×7, 9×7, 10×7, 8×8,]
 		var columns =7;
-		var rows = 6;
+		var rows = 6;  
 		let arrayConnect4 = [
-		[0,0,0,0,0,0,0],			//00 01 02 03 04 05 row col
-		[0,0,0,0,0,0,0],			//10 11 12 13 14 15
-		[0,0,0,0,0,0,0],			//20 21 22 23 24 25
+		[0,0,0,0,0,0,0],			 
+		[0,0,0,0,0,0,0],			 
 		[0,0,0,0,0,0,0],			//30 31 32 33 34 35		//diag = case1 00 11 22 33 or 01 12 23 34 or 02 13 24 35
-		[0,0,0,0,0,0,0],
-		[0,0,0,0,0,0,0] 
+		[0,0,0,0,0,0,0],			//20 21 22 23 24 25
+		[0,0,0,0,0,0,0],			//10 11 12 13 14 15
+		[0,0,0,0,0,0,0] 			//00 01 02 03 04 05 row col 
 		]; 
 		
 		let arrayConnect4WorkgBut8 = [
-		[0,0,0,0,0,0,0,0],			//00 01 02 03 row col
+		[0,0,0,0,0,0,0,0],			
 		[0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0],
-		[0,0,0,0,0,0,0,0]
+		[0,0,0,0,0,0,0,0]//00 01 02 03 row col
 		];
 		function isAnyWinner() { 
 			// 2 to 4 ways to check
@@ -51,12 +51,12 @@
 					   console.log(" got winner (col) *** "+arrayConnect4[j+2][i]);
 					   return(arrayConnect4[j+2][i])
 				   } 
-			  }
+				}
 			}  
 			
 			//2. row wise : 7 columns × 6 rows
 			//sample : [0,0,0,0,0,0,0,0],			//00 01 02 03 row col
-			//[0,0,0,0,0,0,0,0],  if(false)			
+			//[0,0,0,0,0,0,0,0],   
 			for (j = 0; j < rows ; j++) {  
 			   console.table(" isAnyWinner(row): "+j+"  :"+arrayConnect4[j]);
 			   for (i = 0; i < columns - 3; i++){ 
@@ -68,12 +68,12 @@
 						   console.log(" got winner (row) *** "+arrayConnect4[j][i+2]);
 						   return(arrayConnect4[j][i+2])
 				   } 
-				  }
+				}
 			}
 
-			//3. //diag upward = case1 00 11 22 33 or 01 12 23 34 or 02 13 24 35
+			//3. //diag upward = case1 00 11 22 33 or 01 12 23 34 or 02 13 24 35			if(false)
 			for (j = 0; j < rows ; j++) {  
-			   console.table(" isAnyWinner(dia UI_leftLow-right): "+j+"  :"+arrayConnect4[j]);
+			   console.table(" isAnyWinner(dia UI_leftHigh-right): "+j+"  :"+arrayConnect4[j]);
 			   for (i = 0; i < columns - 3; i++){ 
 					console.log(" arrayConnect4[j][i]:"+ arrayConnect4[j][i])
 					if(arrayConnect4[j][i] != 0 &&
@@ -83,11 +83,25 @@
 						   console.log(" got winner (dia UI_l-r) *** "+arrayConnect4[j+2][i+2]);
 						   return(arrayConnect4[j+2][i+2])
 				   } 
-				  }
+				}
 			}
-			
-			//4. //diag left to down right = case1 00 11 22 33 or 01 12 23 34 or 02 13 24 35
-			
+			  
+			//check upward diagonal
+			for (j = 3; j < rows ; j++) {
+				console.table(" isAnyWinner(dia  ): "+j+"  :"+arrayConnect4[j]); 
+			   for (i = 0; i < columns - 3; i++){
+				   console.table("j:"+j+" i:"+i+" arrayConnect4[j][i]:"+arrayConnect4[j][i] +" arrayConnect4[j-1][i+1] :"+arrayConnect4[j-1][i+1] +
+				" arrayConnect4[j-2][i+2] :"+arrayConnect4[j-2][i+2] +" arrayConnect4[j-3][i+3]:"+arrayConnect4[j-3][i+3]);
+				
+				   if(arrayConnect4[j][i] != 0 &&
+					   arrayConnect4[j][i] == arrayConnect4[j-1][i+1]  &&
+					   arrayConnect4[j-1][i+1] == arrayConnect4[j-2][i+2]  &&
+					   arrayConnect4[j-2][i+2] == arrayConnect4[j-3][i+3]) {
+						   console.log(" got winner (dia ) *** "+arrayConnect4[j][i]);
+						   return(arrayConnect4[j][i]) 
+				}
+			}
+		}
 			return(0); //no winner till now
 		} 
 		
