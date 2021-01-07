@@ -1,7 +1,9 @@
-		var gCount=0;
-		var player1Clr='#7FFF00';
-		var player2Clr="#ff0048";
+		
+		var player1Clr='#7FFF00'; //green
+		var player2Clr="#ff0048"; //red
+		var playerResetClr="#ff9bff"; //"";//pink #120f10
 
+		var gCount=0;
 		var gBtn0Count=-1;
 		var gBtn1Count=-1;
 		var gBtn2Count=-1;
@@ -11,17 +13,17 @@
 		var gBtn5Count=-1;
 		var gBtn6Count=-1;
 		
-		//The most commonly used Connect Four board size is 7 columns × 6 rows. Size variations include 5×4, 6×5, 8×7, 9×7, 10×7, 8×8,]
-		var columns =7;
-		var rows = 6;  
-		let arrayConnect4 = [
+		//The most commonly used Connect Four board size is 7 columns × 6 rows. Size variations include 5×4, 6×5, 8×7, 9×7, 10×7, 8×8,] 
+		var arrayConnect4 = [
 		[0,0,0,0,0,0,0],			 
 		[0,0,0,0,0,0,0],			 
 		[0,0,0,0,0,0,0],			//30 31 32 33 34 35		//diag = case1 00 11 22 33 or 01 12 23 34 or 02 13 24 35
 		[0,0,0,0,0,0,0],			//20 21 22 23 24 25
 		[0,0,0,0,0,0,0],			//10 11 12 13 14 15
 		[0,0,0,0,0,0,0] 			//00 01 02 03 04 05 row col 
-		]; 
+		];
+		var columns =7;
+		var rows = 6; 
 		 
 		function isAnyWinner() { 
 			// 2 to 4 ways to check
@@ -30,11 +32,10 @@
 			for (i = 0; i < columns; i++) { 
 			  console.table(" isAnyWinner(col): "+i+"  :"+arrayConnect4[i]);
 			  for (j = 0; j < rows - 3; j++) { //only 3times for row
-				console.log("arrayConnect4[j][i] j:"+j+" i:"+i+" data="+arrayConnect4[j][i]); 
-				console.log(" arrayConnect4[j+3][i]:"+ arrayConnect4[j+3][i]); 
-				if(arrayConnect4[j][i] == arrayConnect4[j+1][i])
-					console.log("1line");  
-				
+				//console.log("arrayConnect4[j][i] j:"+j+" i:"+i+" data="+arrayConnect4[j][i]); 
+				//console.log(" arrayConnect4[j+3][i]:"+ arrayConnect4[j+3][i]); 
+				//if(arrayConnect4[j][i] == arrayConnect4[j+1][i])
+					//console.log("1line"); 
 				if(arrayConnect4[j][i] != 0 &&
 				   arrayConnect4[j][i] == arrayConnect4[j+1][i] &&
 				   arrayConnect4[j+1][i] == arrayConnect4[j+2][i] &&
@@ -81,9 +82,8 @@
 			for (j = 3; j < rows ; j++) {
 				console.table(" isAnyWinner(dia  ): "+j+"  :"+arrayConnect4[j]); 
 			   for (i = 0; i < columns - 3; i++){
-				   console.table("j:"+j+" i:"+i+" arrayConnect4[j][i]:"+arrayConnect4[j][i] +" arrayConnect4[j-1][i+1] :"+arrayConnect4[j-1][i+1] +
-				" arrayConnect4[j-2][i+2] :"+arrayConnect4[j-2][i+2] +" arrayConnect4[j-3][i+3]:"+arrayConnect4[j-3][i+3]);
-				
+				 //  console.table("j:"+j+" i:"+i+" arrayConnect4[j][i]:"+arrayConnect4[j][i] +" arrayConnect4[j-1][i+1] :"+arrayConnect4[j-1][i+1] +
+				//" arrayConnect4[j-2][i+2] :"+arrayConnect4[j-2][i+2] +" arrayConnect4[j-3][i+3]:"+arrayConnect4[j-3][i+3]); 
 				   if(arrayConnect4[j][i] != 0 &&
 					   arrayConnect4[j][i] == arrayConnect4[j-1][i+1]  &&
 					   arrayConnect4[j-1][i+1] == arrayConnect4[j-2][i+2]  &&
@@ -95,6 +95,44 @@
 		}
 			return(0); //no winner till now
 		} 
+		
+		function resetColor() { 
+			console.log(" resetColor function ***");
+			//reset few var
+			gCount=0;
+			gBtn0Count=-1;
+			gBtn1Count=-1;
+			gBtn2Count=-1;
+			gBtn3Count=-1;
+
+			gBtn4Count=-1;
+			gBtn5Count=-1;
+			gBtn6Count=-1;
+
+		 	arrayConnect4 = [
+			[0,0,0,0,0,0,0],			 
+			[0,0,0,0,0,0,0],			 
+			[0,0,0,0,0,0,0],			//30 31 32 33 34 35		//diag = case1 00 11 22 33 or 01 12 23 34 or 02 13 24 35
+			[0,0,0,0,0,0,0],			//20 21 22 23 24 25
+			[0,0,0,0,0,0,0],			//10 11 12 13 14 15
+			[0,0,0,0,0,0,0] 			//00 01 02 03 04 05 row col 
+			];
+			
+			//other var
+			var btn ="buttonC0"; //btn=='buttonC1'
+			var btnExtra;
+			var gBtnCount=0;
+			gBtnCount=gBtnCount+1;
+			btnExtra = btn+gBtnCount;
+			var property;
+			for (j = 0; j < 6 ; j++) {
+				for (i = 0; i < 6 ; i++) {
+					btnExtra="buttonC"+j+i; 
+					property = document.getElementById(btnExtra);//lbl 
+					property.style.backgroundColor = playerResetClr;
+				}
+			}		
+		}
 		
 		function setColor(btn) {
 			var btnExtra;
@@ -181,19 +219,21 @@
 			//check if any winner only after 8clicks
 			if(gCount > 5)
 			{
-				winner = isAnyWinner(); //isAnyWinnerRow();
+				winner = isAnyWinner();  
 				console.log(" winner is :"+winner); 
 				var property = document.getElementById("lbl");
 				if(winner == 1)
 				{
 					property.innerHTML="Player 1 won, Congratulations ";
 					alert(property.innerHTML );
+					resetColor();
 				}
 				if(winner == 2)
 				{
 					property.innerHTML="Player 2 won, Congratulations ";
 					alert(property.innerHTML);
+					resetColor();
 				}
 			}
-			gCount=gCount+1; 
+			gCount=gCount+1; //TODO: check upper limit for 
 		} 
