@@ -31,11 +31,7 @@
 			//1. first way : column wise (wrkg for all coln, up col also) 
 			for (i = 0; i < columns; i++) { 
 			  console.table(" isAnyWinner(col): "+i+"  :"+arrayConnect4[i]);
-			  for (j = 0; j < rows - 3; j++) { //only 3times for row
-				//console.log("arrayConnect4[j][i] j:"+j+" i:"+i+" data="+arrayConnect4[j][i]); 
-				//console.log(" arrayConnect4[j+3][i]:"+ arrayConnect4[j+3][i]); 
-				//if(arrayConnect4[j][i] == arrayConnect4[j+1][i])
-					//console.log("1line"); 
+			  for (j = 0; j < rows - 3; j++) { //only 3times for row 
 				if(arrayConnect4[j][i] != 0 &&
 				   arrayConnect4[j][i] == arrayConnect4[j+1][i] &&
 				   arrayConnect4[j+1][i] == arrayConnect4[j+2][i] &&
